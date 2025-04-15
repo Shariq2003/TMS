@@ -13,11 +13,13 @@ import { LabelModule } from '@progress/kendo-angular-label';
 import { KendoGridComponent } from './shared/widgets/kendo-grid/kendo-grid.component';
 
 import { SharedModule } from './shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     SharedModule,
     AppRoutingModule,
     InputsModule,
