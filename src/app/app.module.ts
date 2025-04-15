@@ -11,11 +11,15 @@ import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { TaskListComponent } from './tasks/components/task-list/task-list.component';
+import { KendoGridComponent } from './shared/widgets/kendo-grid/kendo-grid.component';
+
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent, TaskListComponent],
+  declarations: [AppComponent, TaskListComponent, ],
   imports: [
     BrowserModule,
+    SharedModule,
     AppRoutingModule,
     InputsModule,
     LabelModule,
