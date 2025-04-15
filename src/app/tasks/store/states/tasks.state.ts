@@ -26,7 +26,7 @@ export class TasksState {
 
   @Selector()
   static getTasks(state: TasksStateModel): Task[] {
-    return state.tasks;
+    return state?.tasks ?? [];
   }
 
   @Action(CreateTask)
@@ -63,7 +63,7 @@ export class TasksState {
           );
           ctx.setState({ ...state, tasks });
         })
-      );
+    );
   }
 
   @Action(DeleteTask)

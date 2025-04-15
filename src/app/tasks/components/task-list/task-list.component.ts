@@ -13,34 +13,30 @@ import { TasksState } from '../../store/states/tasks.state';
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
+  styleUrls: ['./task-list.component.scss'],
 })
 export class TaskListComponent implements OnInit {
   tasks$: Observable<Task[]>;
+  taskList: Task[] = [];
+  filteredTasks: Task[] = [];
+  searchTerm: string = '';
 
   constructor(private store: Store) {
+    this.store.dispatch(new ReadTasks());
     this.tasks$ = this.store.select(TasksState.getTasks);
+  }
+  onSearchChange(): void {
+    const term = this.searchTerm.toLowerCase();
+    this.filteredTasks = this.taskList.filter((task) =>
+      Object.values(task).some((value) =>
+        String(value).toLowerCase().includes(term)
+      )
+    );
   }
 
   ngOnInit(): void {
-    this.store.dispatch(new ReadTasks());
-  }
-
-  addTask() {
-    const newTask: Task = {
-      id: Date.now().toString(),
-      title: 'New Task',
-      description: 'Created from UI',
-      status: 'incomplete',
-    };
-    this.store.dispatch(new CreateTask(newTask));
-  }
-
-  completeTask(task: Task) {
-    const updatedTask = { ...task, status: 'complete' };
-    this.store.dispatch(new UpdateTask({ id: +task.id, task: updatedTask }));
-  }
-
-  deleteTask(id: string) {
-    this.store.dispatch(new DeleteTask(+id));
+    this.tasks$.subscribe((tasks) => {
+      this.taskList = tasks || [];
+    });
   }
 }
