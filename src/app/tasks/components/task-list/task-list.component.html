@@ -1,0 +1,10 @@
+<div class="task-manager-container">
+    <h1>🗂️ Task Manager System</h1>
+    <div class="filter-section">
+        <label class="filter-label">
+            <span>🔍</span>
+            <input type="text" placeholder="Search tasks..." [(ngModel)]="searchTerm" (input)="onSearchChange()" />
+        </label>
+    </div>
+    <app-kendo-grid [gridData]="taskList"></app-kendo-grid>
+</div>
