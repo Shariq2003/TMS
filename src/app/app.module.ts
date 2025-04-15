@@ -10,11 +10,15 @@ import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { LabelModule } from '@progress/kendo-angular-label';
+import { KendoGridComponent } from './shared/widgets/kendo-grid/kendo-grid.component';
+
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ],
   imports: [
     BrowserModule,
+    SharedModule,
     AppRoutingModule,
     InputsModule,
     LabelModule,
