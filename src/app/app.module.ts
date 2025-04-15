@@ -10,9 +10,10 @@ import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { LabelModule } from '@progress/kendo-angular-label';
+import { TaskListComponent } from './tasks/components/task-list/task-list.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TaskListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
