@@ -19,6 +19,7 @@ import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { TasksState } from './tasks/store/states/tasks.state';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
   provideHttpClient,
@@ -28,6 +29,7 @@ import {
 @NgModule({
   declarations: [AppComponent, TaskListComponent],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     ReactiveFormsModule,
     SharedModule,

@@ -20,6 +20,7 @@ export class TaskListComponent implements OnInit {
   taskList: Task[] = [];
   filteredTasks: Task[] = [];
   searchTerm: string = '';
+  temp:Array<string> = ['Task 1', 'Task 2', 'Task 3'];
 
   constructor(private store: Store) {
     // this.store.dispatch(new ReadTasks());
