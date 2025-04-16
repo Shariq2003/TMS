@@ -16,14 +16,14 @@ import { TasksState } from '../../store/states/tasks.state';
   styleUrls: ['./task-list.component.scss'],
 })
 export class TaskListComponent implements OnInit {
-  tasks$: Observable<Task[]>;
+  tasks !: Observable<Task[]>;
   taskList: Task[] = [];
   filteredTasks: Task[] = [];
   searchTerm: string = '';
 
   constructor(private store: Store) {
-    this.store.dispatch(new ReadTasks());
-    this.tasks$ = this.store.select(TasksState.getTasks);
+    // this.store.dispatch(new ReadTasks());
+    // this.tasks$ = this.store.select(TasksState.getTasks);
   }
   onSearchChange(): void {
     const term = this.searchTerm.toLowerCase();
@@ -35,8 +35,15 @@ export class TaskListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.tasks$.subscribe((tasks) => {
-      this.taskList = tasks || [];
-    });
+  this.tasks = this.store.select(TasksState.getTasks);
+
+  this.tasks.subscribe((tasks) => {
+    if (!tasks || tasks.length === 0) {
+      this.store.dispatch(new ReadTasks());
+    }
+
+    this.taskList = tasks || [];
+    this.onSearchChange();
+  });
   }
 }

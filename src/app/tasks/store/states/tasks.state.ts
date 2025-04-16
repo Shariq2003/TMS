@@ -31,7 +31,7 @@ export class TasksState {
 
   @Action(CreateTask)
   createTask(ctx: StateContext<TasksStateModel>, action: CreateTask) {
-    return this.tasksService.createTask(action.payload).pipe(
+    return this.tasksService.createTask(action.task).pipe(
       tap((newTask: Task) => {
         const state = ctx.getState();
         ctx.setState({
@@ -68,11 +68,11 @@ export class TasksState {
 
   @Action(DeleteTask)
   deleteTask(ctx: StateContext<TasksStateModel>, action: DeleteTask) {
-    return this.tasksService.deleteTask(action.payload).pipe(
+    return this.tasksService.deleteTask(action.id).pipe(
       tap(() => {
         const state = ctx.getState();
         const filteredTasks = state.tasks.filter(
-          (task) => task.id !== action.payload.toString()
+          (task) => task.id !== action.id.toString()
         );
         ctx.setState({ ...state, tasks: filteredTasks });
       })

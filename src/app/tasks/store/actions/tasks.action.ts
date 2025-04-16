@@ -1,6 +1,6 @@
 export class CreateTask {
   static readonly type = '[Tasks] Create'
-constructor(public payload: any) {}
+  constructor(public task: any) {}
 }
 export class ReadTasks {
   static readonly type = '[Tasks] Read';
@@ -11,5 +11,5 @@ export class UpdateTask {
 }
 export class DeleteTask {
   static readonly type = '[Tasks] Delete';
-    constructor(public payload: number) {}
+  constructor(public id: number) {}
 }

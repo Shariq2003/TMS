@@ -41,7 +41,7 @@ import {
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     NgxsStoragePluginModule.forRoot({
-      keys: [],
+      keys: ['tasks'],
     }),
   ],
   providers: [
