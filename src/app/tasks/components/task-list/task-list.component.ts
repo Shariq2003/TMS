@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Store, Select } from '@ngxs/store';
+import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { Task } from '../../store/models/tasks.model';
 import {
@@ -35,15 +35,14 @@ export class TaskListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  this.tasks = this.store.select(TasksState.getTasks);
+    this.tasks = this.store.select(TasksState.getTasks);
 
-  this.tasks.subscribe((tasks) => {
-    if (!tasks || tasks.length === 0) {
-      this.store.dispatch(new ReadTasks());
-    }
-
-    this.taskList = tasks || [];
-    this.onSearchChange();
-  });
+    this.tasks.subscribe((tasks) => {
+      if (!tasks || tasks.length === 0) {
+        this.store.dispatch(new ReadTasks());
+      }
+      this.taskList = tasks;
+      this.onSearchChange();
+    });
   }
 }
