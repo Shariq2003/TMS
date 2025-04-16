@@ -1,11 +1,14 @@
 <div class="task-manager-container">
     <h1>🗂️ Task Management System</h1>
-    <app-kendo-dropdown [dropdownData]="temp" ></app-kendo-dropdown>
-    <div class="filter-section">
-        <label class="filter-label">
-            <span class="icon">🔍</span>
-            <input type="text" placeholder="Search tasks..." [(ngModel)]="searchTerm" (input)="onSearchChange()" />
-        </label>
-    </div>
-    <app-kendo-grid [gridData]="taskList"></app-kendo-grid>
+    <app-form-field
+        [placeholder]="'Search here to filter'"
+        [type]="'text'"
+        [control]="searchControl"
+        [error]="'Search input error'"
+        >
+    </app-form-field>
+    <app-kendo-grid 
+        [gridData]="taskList"
+        >
+    </app-kendo-grid>
 </div>

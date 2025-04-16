@@ -46,7 +46,7 @@ export class TasksState {
   readTasks(ctx: StateContext<TasksStateModel>) {
     return this.tasksService.getTasks().pipe(
       tap((tasks: Task[]) => {
-        ctx.patchState({ tasks });
+        ctx.setState({ tasks });
       })
     );
   }

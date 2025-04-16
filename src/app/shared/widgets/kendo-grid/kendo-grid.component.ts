@@ -35,10 +35,10 @@ export class KendoGridComponent implements OnInit {
   }
 
   formatTitle(field: string): string {
-    return (field
-      .split('.')
-      .pop()
-      ?.replace(/([A-Z])/g, ' $1')
-      .replace(/^./, (str) => str.toUpperCase())) ?? field; 
+    if (!field){
+      return field;
+    } 
+    const updatedField = field.replace(/([A-Z])/g, ' $1');
+    return updatedField.charAt(0).toUpperCase() + updatedField.slice(1);
   }
 }

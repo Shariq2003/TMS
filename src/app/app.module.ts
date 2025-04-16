@@ -13,7 +13,6 @@ import { LabelModule } from '@progress/kendo-angular-label';
 import { TaskListComponent } from './tasks/components/task-list/task-list.component';
 import { importProvidersFrom } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { KendoGridComponent } from './shared/widgets/kendo-grid/kendo-grid.component';
 
 import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';

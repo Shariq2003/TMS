@@ -10,12 +10,14 @@
         *ngSwitchCase="'text'"
         [formControl]="control"
         [id]="label"
+        [placeholder]="placeholder ?? ''"
       ></kendo-textbox>
   
       <kendo-textbox
         *ngSwitchCase="'email'"
         [formControl]="control"
         [id]="label"
+        [placeholder]="placeholder ?? ''"
         type="text"
       ></kendo-textbox>
   
@@ -23,6 +25,7 @@
         *ngSwitchCase="'date'"
         [formControl]="control"
         [id]="label"
+        [placeholder]="placeholder ?? ''"
       ></kendo-datepicker>
     </ng-container>
   
