@@ -9,11 +9,12 @@ import { FormFieldModule, InputsModule } from '@progress/kendo-angular-inputs';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { KendoDropdownComponent } from './kendo-dropdown/kendo-dropdown.component';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { KendoTextareaComponent } from './kendo-textarea/kendo-textarea.component';
 
 
 @NgModule({
-  declarations: [KendoGridComponent, FormFieldComponent, KendoDropdownComponent],
-  imports: [CommonModule, GridModule , ReactiveFormsModule , LabelModule , InputsModule , FormFieldModule , DateInputsModule ,DropDownsModule , LabelModule],
-  exports: [KendoGridComponent , FormFieldComponent , KendoDropdownComponent],
+  declarations: [KendoGridComponent, FormFieldComponent, KendoDropdownComponent, KendoTextareaComponent , KendoTextareaComponent],
+  imports: [CommonModule, GridModule , ReactiveFormsModule , LabelModule , InputsModule , FormFieldModule , DateInputsModule ,DropDownsModule , LabelModule ],
+  exports: [KendoGridComponent , FormFieldComponent , KendoDropdownComponent, KendoTextareaComponent],
 })
 export class WidgetsModule {}
