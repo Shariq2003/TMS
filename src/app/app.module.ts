@@ -24,9 +24,11 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
+import { TaskViewComponent } from './tasks/components/task-view/task-view.component';
+import { TaskCardComponent } from './tasks/components/task-card/task-card.component';
 
 @NgModule({
-  declarations: [AppComponent, TaskListComponent],
+  declarations: [AppComponent, TaskListComponent, TaskViewComponent, TaskCardComponent],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
