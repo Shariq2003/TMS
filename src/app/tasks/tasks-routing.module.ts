@@ -5,6 +5,6 @@ import { TaskViewComponent } from './components/task-view/task-view.component';
 
 export const tasksRoutes: Routes = [
   {path: '' , component: TaskListComponent},
-  {path:'view' , component: TaskViewComponent},
+  { path: 'view/:id', component: TaskViewComponent },
   {path: 'edit' , component: TaskEditComponent},
 ];

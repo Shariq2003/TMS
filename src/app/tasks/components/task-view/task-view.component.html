@@ -1,1 +1,8 @@
-<p>task-view works!</p>
+<div class="task-view-container">
+    <h2>📋 Task Details</h2>
+    <app-kendo-card 
+      *ngIf="task"
+      [cardData]="task">
+    </app-kendo-card>
+  </div>
+  
