@@ -2,4 +2,5 @@ export default interface TaskActions{
     class : string,
     color : string,
     link : string,
+    type : string,
 }

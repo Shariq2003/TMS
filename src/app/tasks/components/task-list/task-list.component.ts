@@ -23,14 +23,16 @@ export class TaskListComponent implements OnInit {
   filteredTasks: Task[] = [];
   searchControl: FormControl = new FormControl('');
   actions: TaskActions[] = [
-    { class: 'k-icon k-font-icon k-i-eye', color: 'blue', link: '/view' },
-    { class: 'k-icon k-font-icon k-i-edit', color: 'green', link: '/edit' },
-    { class: 'k-icon k-font-icon k-i-trash', color: 'red', link: '/' },
+    { class: 'k-icon k-font-icon k-i-eye', color: 'blue', link: '/view', type: 'view' },
+    { class: 'k-icon k-font-icon k-i-edit', color: 'green', link: '/edit', type: 'edit' },
+    { class: 'k-icon k-font-icon k-i-trash', color: 'red', link: '/', type: 'delete' },
   ];
 
   constructor(private store: Store) {
     // this.store.dispatch(new ReadTasks());
     // this.tasks$ = this.store.select(TasksState.getTasks);
+    this.handleClick = this.handleClick.bind(this); 
+    // Explicitly bind the method to the component instance(becuase for delete action, the intance or context of the 'this' is of the widget and cuasing the store to be undefined)
   }
   // onSearchChange(): void {
   //   const term = this.searchControl.value.toLowerCase();
@@ -42,6 +44,12 @@ export class TaskListComponent implements OnInit {
   //   );
   // }
 
+  handleClick(id:number): void {
+    console.log('Delete action clicked for task with ID:', id);
+    this.store.dispatch(new DeleteTask(id)).subscribe(() => {
+      this.store.dispatch(new ReadTasks());
+    });
+  }
   ngOnInit(): void {
     this.tasks = this.store.select(TasksState.getTasks);
 
