@@ -3,10 +3,10 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-form-field',
-  templateUrl: './form-field.component.html',
-  styleUrls: ['./form-field.component.scss']
+  templateUrl: './kendo-form-field.component.html',
+  styleUrls: ['./kendo-form-field.component.scss']
 })
-export class FormFieldComponent {
+export class KendoFormFieldComponent {
   @Input() label!: string;
   @Input() control!: FormControl;
   @Input() hint?: string;

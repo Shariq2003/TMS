@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { KendoGridComponent } from './kendo-grid/kendo-grid.component';
 import { GridModule } from '@progress/kendo-angular-grid';
-import { FormFieldComponent } from './form-field/form-field.component';
+import { KendoFormFieldComponent } from './kendo-form-field/kendo-form-field.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { FormFieldModule, InputsModule } from '@progress/kendo-angular-inputs';
@@ -16,8 +16,33 @@ import { RouterModule } from '@angular/router';
 
 
 @NgModule({
-  declarations: [KendoGridComponent, FormFieldComponent, KendoDropdownComponent, KendoTextareaComponent , KendoTextareaComponent, KendoCardComponent, KendoButtonsComponent],
-  imports: [CommonModule, GridModule , ReactiveFormsModule , LabelModule , InputsModule , FormFieldModule , DateInputsModule ,DropDownsModule , LabelModule,RouterModule  ],
-  exports: [KendoGridComponent , FormFieldComponent , KendoDropdownComponent, KendoTextareaComponent , KendoCardComponent],
+  declarations: [
+    KendoGridComponent,
+    KendoFormFieldComponent,
+    KendoDropdownComponent,
+    KendoTextareaComponent,
+    KendoTextareaComponent,
+    KendoCardComponent,
+    KendoButtonsComponent,
+  ],
+  imports: [
+    CommonModule,
+    GridModule,
+    ReactiveFormsModule,
+    LabelModule,
+    InputsModule,
+    FormFieldModule,
+    DateInputsModule,
+    DropDownsModule,
+    LabelModule,
+    RouterModule,
+  ],
+  exports: [
+    KendoGridComponent,
+    KendoFormFieldComponent,
+    KendoDropdownComponent,
+    KendoTextareaComponent,
+    KendoCardComponent,
+  ],
 })
 export class WidgetsModule {}

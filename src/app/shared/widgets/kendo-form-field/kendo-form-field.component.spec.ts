@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormFieldComponent } from './form-field.component';
+import { KendoFormFieldComponent } from './kendo-form-field.component';
 
 describe('FormFieldComponent', () => {
-  let component: FormFieldComponent;
-  let fixture: ComponentFixture<FormFieldComponent>;
+  let component: KendoFormFieldComponent;
+  let fixture: ComponentFixture<KendoFormFieldComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FormFieldComponent]
-    })
-    .compileComponents();
+      declarations: [KendoFormFieldComponent],
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(FormFieldComponent);
+    fixture = TestBed.createComponent(KendoFormFieldComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
