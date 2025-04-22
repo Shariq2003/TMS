@@ -4,7 +4,13 @@
     <kendo-grid-column title="Actions">
         <ng-template kendoGridCellTemplate let-dataItem>
             <ng-container *ngFor="let action of actions">
-                <a [routerLink]="action.type!=='delete' ? [action.link, dataItem.id,] : []" [class]="action.class" class="kendo-action-link" [ngStyle]="{ backgroundColor: action.color }" (click)="action.type==='delete' ? handleClick(dataItem.id): null"></a>
+                <!-- <a [routerLink]="action.type!=='delete' ? [action.link, dataItem.id,] : []" [class]="action.class" class="kendo-action-link" [ngStyle]="{ backgroundColor: action.color }" (click)="action.type==='delete' ? handleClick(dataItem.id): null"></a> -->
+                <app-kendo-button
+                    [action]="action"
+                    [dataItem]="dataItem"
+                    (handleClick)="handleClick(dataItem.id)"
+                    >
+                </app-kendo-button>
             </ng-container>
         </ng-template>
     </kendo-grid-column>

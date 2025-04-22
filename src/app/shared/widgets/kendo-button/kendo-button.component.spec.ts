@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { KendoButtonsComponent } from './kendo-buttons.component';
+import { KendoButtonComponent } from './kendo-button.component';
 
-describe('KendoButtonsComponent', () => {
-  let component: KendoButtonsComponent;
-  let fixture: ComponentFixture<KendoButtonsComponent>;
+describe('KendoButtonComponent', () => {
+  let component: KendoButtonComponent;
+  let fixture: ComponentFixture<KendoButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [KendoButtonsComponent]
+      declarations: [KendoButtonComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(KendoButtonsComponent);
+    fixture = TestBed.createComponent(KendoButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
