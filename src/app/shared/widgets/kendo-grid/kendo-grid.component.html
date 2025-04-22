@@ -1,4 +1,4 @@
-<kendo-grid [data]="gridData">
+<kendo-grid [data]="gridData" *ngIf="gridData?.length && setColumnFields(gridData[0])">
     <kendo-grid-column *ngFor="let field of columnFields" [field]="field" [title]="formatTitle(field)">
     </kendo-grid-column> 
     <kendo-grid-column title="Actions">

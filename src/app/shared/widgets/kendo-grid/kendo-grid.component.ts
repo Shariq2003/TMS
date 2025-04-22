@@ -7,16 +7,17 @@ import { Task } from '../../../tasks/store/models/tasks.model';
   templateUrl: './kendo-grid.component.html',
   styleUrls: ['./kendo-grid.component.scss']
 })
-export class KendoGridComponent implements OnInit {
+export class KendoGridComponent {
   @Input() gridData: Task[] = [];
   @Input() actions: TaskActions[] = [];
 
   public columnFields: string[] = [];
 
-  ngOnInit(): void {
+  setColumnFields(item: Task): boolean {
     if (this.gridData.length > 0) {
       this.columnFields = this.extractFields(this.gridData[0]);
     }
+    return true;
   }
 
   private extractFields(obj: any, prefix: string = ''): string[] {
