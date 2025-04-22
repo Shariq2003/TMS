@@ -1,7 +1,19 @@
-<div class="kendo-card">
+<!-- <div class="kendo-card">
     <div class="card-row" *ngFor="let field of fields">
       <strong>{{ formatKey(field.key) }}:</strong> {{ field.value }}
     </div>
   </div>
   
+   -->
+   <div class="kendo-card">
+    <div class="card-header">
+      <h3>{{ cardData?.title }}</h3>
+    </div>
+    <div class="card-body">
+      <div class="card-row" *ngFor="let field of fields">
+        <span class="key">{{ formatKey(field.key) }}:</span>
+        <span class="value">{{ field.value }}</span>
+      </div>
+    </div>
+  </div>
   

@@ -45,9 +45,9 @@ export class TaskListComponent implements OnInit {
         this.store.dispatch(new ReadTasks());
       }
       this.taskList = tasks;
-      this.searchControl.valueChanges.subscribe((value) => {
-        this.onSearchChange();
-      });
+      // this.searchControl.valueChanges.subscribe((value) => {
+      //   this.onSearchChange();
+      // });
     });
   }
 }

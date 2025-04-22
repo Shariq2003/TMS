@@ -26,10 +26,11 @@ import {
 } from '@angular/common/http';
 import { TaskViewComponent } from './tasks/components/task-view/task-view.component';
 import { TaskEditComponent } from './tasks/components/task-edit/task-edit.component';
+import { TaskFilterPipe } from './tasks/pipes/task-filter.pipe';
 
 
 @NgModule({
-  declarations: [AppComponent, TaskListComponent, TaskViewComponent, TaskEditComponent],
+  declarations: [AppComponent, TaskListComponent, TaskViewComponent, TaskEditComponent, TaskFilterPipe],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,

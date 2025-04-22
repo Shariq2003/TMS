@@ -8,7 +8,7 @@
         >
     </app-form-field>
     <app-kendo-grid 
-        [gridData]="taskList"
+        [gridData]="taskList  | taskFilter:searchControl.value"
         >
     </app-kendo-grid>
 </div>
