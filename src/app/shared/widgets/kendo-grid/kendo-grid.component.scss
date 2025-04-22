@@ -1,0 +1,19 @@
+.kendo-action-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  font-size: 16px;
+  color: white;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+  .k-icon {
+    font-size: 1.1rem;
+  }
+}

@@ -9,6 +9,7 @@
     </app-form-field>
     <app-kendo-grid 
         [gridData]="taskList  | taskFilter:searchControl.value"
+        [actions]="actions"
         >
     </app-kendo-grid>
 </div>

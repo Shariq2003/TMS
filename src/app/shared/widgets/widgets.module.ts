@@ -12,11 +12,12 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { KendoTextareaComponent } from './kendo-textarea/kendo-textarea.component';
 import { KendoCardComponent } from './kendo-card/kendo-card.component';
 import { KendoButtonsComponent } from './kendo-buttons/kendo-buttons.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [KendoGridComponent, FormFieldComponent, KendoDropdownComponent, KendoTextareaComponent , KendoTextareaComponent, KendoCardComponent, KendoButtonsComponent],
-  imports: [CommonModule, GridModule , ReactiveFormsModule , LabelModule , InputsModule , FormFieldModule , DateInputsModule ,DropDownsModule , LabelModule ],
+  imports: [CommonModule, GridModule , ReactiveFormsModule , LabelModule , InputsModule , FormFieldModule , DateInputsModule ,DropDownsModule , LabelModule,RouterModule  ],
   exports: [KendoGridComponent , FormFieldComponent , KendoDropdownComponent, KendoTextareaComponent , KendoCardComponent],
 })
 export class WidgetsModule {}

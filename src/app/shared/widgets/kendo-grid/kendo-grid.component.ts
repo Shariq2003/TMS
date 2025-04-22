@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import TaskActions from '../../../tasks/store/models/taskActions.model';
+import { Task } from '../../../tasks/store/models/tasks.model';
 
 @Component({
   selector: 'app-kendo-grid',
@@ -6,7 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./kendo-grid.component.scss']
 })
 export class KendoGridComponent implements OnInit {
-  @Input() gridData: any[] = [];
+  @Input() gridData: Task[] = [];
+  @Input() actions: TaskActions[] = [];
 
   public columnFields: string[] = [];
 

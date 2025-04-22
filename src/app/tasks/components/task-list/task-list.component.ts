@@ -10,6 +10,7 @@ import {
   DeleteTask,
 } from '../../store/actions/tasks.action';
 import { TasksState } from '../../store/states/tasks.state';
+import TaskActions from '../../store/models/taskActions.model';
 
 @Component({
   selector: 'app-task-list',
@@ -21,21 +22,25 @@ export class TaskListComponent implements OnInit {
   taskList: Task[] = [];
   filteredTasks: Task[] = [];
   searchControl: FormControl = new FormControl('');
-  temp:Array<string> = ['Task 1', 'Task 2', 'Task 3'];
+  actions: TaskActions[] = [
+    { class: 'k-icon k-font-icon k-i-eye', color: 'blue', link: '/view' },
+    { class: 'k-icon k-font-icon k-i-edit', color: 'green', link: '/edit' },
+    { class: 'k-icon k-font-icon k-i-trash', color: 'red', link: '/' },
+  ];
 
   constructor(private store: Store) {
     // this.store.dispatch(new ReadTasks());
     // this.tasks$ = this.store.select(TasksState.getTasks);
   }
-  onSearchChange(): void {
-    const term = this.searchControl.value.toLowerCase();
-    console.log('Search term:', term);
-    this.filteredTasks = this.taskList.filter((task) =>
-      Object.values(task).some((value) =>
-        String(value).toLowerCase().includes(term)
-      )
-    );
-  }
+  // onSearchChange(): void {
+  //   const term = this.searchControl.value.toLowerCase();
+  //   console.log('Search term:', term);
+  //   this.filteredTasks = this.taskList.filter((task) =>
+  //     Object.values(task).some((value) =>
+  //       String(value).toLowerCase().includes(term)
+  //     )
+  //   );
+  // }
 
   ngOnInit(): void {
     this.tasks = this.store.select(TasksState.getTasks);

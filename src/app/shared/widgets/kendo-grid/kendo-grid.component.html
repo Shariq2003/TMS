@@ -1,5 +1,12 @@
 <kendo-grid [data]="gridData">
     <kendo-grid-column *ngFor="let field of columnFields" [field]="field" [title]="formatTitle(field)">
     </kendo-grid-column> 
+    <kendo-grid-column title="Actions">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            <ng-container *ngFor="let action of actions">
+                <a [routerLink]="[action.link, dataItem.id]" [class]="action.class" class="kendo-action-link" [ngStyle]="{ backgroundColor: action.color }"></a>
+            </ng-container>
+        </ng-template>
+    </kendo-grid-column>
 </kendo-grid>
   
