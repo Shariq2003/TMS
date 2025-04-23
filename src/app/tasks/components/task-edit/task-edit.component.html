@@ -1,1 +1,31 @@
-<p>task-edit works!</p>
+<h1>Edit Page</h1>
+
+<form [formGroup]="taskForm" (ngSubmit)="onUpdate()" class="k-form k-form-vertical">
+
+<app-form-field
+    label="Title"
+    type="text"
+    [control]="titleControl"
+    placeholder="Enter title"
+    [error]="'Title is required'"
+  ></app-form-field>
+ 
+
+  <app-form-field
+  label="Description"
+  type="text"
+  [control]="descriptionControl"
+  placeholder="Enter description"
+></app-form-field>
+
+<app-form-field
+label="Status"
+type="text"
+[control]="statusControl"
+placeholder="e.g., Pending, In Progress, Done"
+[error]="'Status is required'"
+></app-form-field>
+
+<button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">Update</button>
+
+</form>
