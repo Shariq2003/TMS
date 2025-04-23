@@ -1,15 +1,32 @@
 <div class="task-manager-container">
     <h1>🗂️ Task Management System</h1>
-    <app-form-field
-        [placeholder]="'Search here to filter'"
-        [type]="'text'"
-        [control]="searchControl"
-        [error]="'Search input error'"
-        >
-    </app-form-field>
+    <div class="task-header">
+        <div class="search-wrapper">
+            <app-form-field
+                [placeholder]="'Search here to filter'"
+                [type]="'text'"
+                [control]="searchControl"
+                [error]="'Search input error'"
+                >
+            </app-form-field>
+        </div>
+        <div class="button-wrapper">
+            <app-kendo-button
+            [buttonText]="'Refetch Tasks'"
+            [action]="{
+                type: 'refresh',
+                link: '',
+                class: '',
+                color: 'green'
+            }" 
+            (handleClick)="fetchHandler()"
+            ></app-kendo-button>
+        </div>
+    </div>
     <app-kendo-grid 
         [gridData]="taskList  | taskFilter:searchControl.value"
         [actions]="actions"
+        [columnFields]="columnFields"
         [handleClick]="handleClick"
         >
     </app-kendo-grid>

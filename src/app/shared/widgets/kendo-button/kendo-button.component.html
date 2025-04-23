@@ -1,7 +1,9 @@
 <a 
-    [routerLink]="action.type!=='delete' ? [action.link, dataItem.id] : []"
+    [routerLink]="action.type!=='delete' && action.link ? [action.link, dataItem.id] : []"
     [class]="action.class"
     class="kendo-action-link" 
-    [ngStyle]="{ backgroundColor: action.color }"
-    (click)="onClick()">
+    [ngStyle]="{ backgroundColor: action.color, }"
+    (click)="onClick()"
+    >
+    {{buttonText}}
 </a>

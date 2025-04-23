@@ -22,6 +22,17 @@ export class TaskListComponent implements OnInit {
   taskList: Task[] = [];
   filteredTasks: Task[] = [];
   searchControl: FormControl = new FormControl('');
+  columnFields: any[]  = [
+    { field: 'id', title: 'ID' },
+    { field: 'title', title: 'Title' },
+    { field: 'description', title: 'Description' },
+    { field: 'status', title: 'Status' },
+    { field: 'priority', title: 'Priority' },
+    { field: 'startDate', title: 'Start Date' },
+    { field: 'endDate', title: 'End Date' },
+    { field: 'assigned', title: 'Assigned To' },
+  ];
+
   actions: TaskActions[] = [
     { class: 'k-icon k-font-icon k-i-eye', color: 'blue', link: '/view', type: 'view' },
     { class: 'k-icon k-font-icon k-i-edit', color: 'green', link: '/edit', type: 'edit' },
@@ -43,11 +54,13 @@ export class TaskListComponent implements OnInit {
   //     )
   //   );
   // }
-
+  fetchHandler(): void {
+    this.store.dispatch(new ReadTasks());
+  }
   handleClick(id:number): void {
     console.log('Delete action clicked for task with ID:', id);
     this.store.dispatch(new DeleteTask(id)).subscribe(() => {
-      this.store.dispatch(new ReadTasks());
+      this.fetchHandler();
     });
   }
   ngOnInit(): void {

@@ -7,6 +7,7 @@ import  TaskActions  from '../../../tasks/store/models/taskActions.model';
   styleUrl: './kendo-button.component.scss',
 })
 export class KendoButtonComponent {
+  @Input() buttonText: string = '';
   @Input() action: TaskActions = { class: '', color: '', link: '', type: '' };
   @Input() dataItem: any = {};
   @Output() handleClick = new EventEmitter<number>();

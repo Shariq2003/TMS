@@ -13,3 +13,20 @@
     color: #2d3748;
   }
 }
+.task-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.search-wrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+.button-wrapper {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+}
