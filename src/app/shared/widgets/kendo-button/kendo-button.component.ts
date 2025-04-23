@@ -9,6 +9,7 @@ import  TaskActions  from '../../../tasks/store/models/taskActions.model';
 export class KendoButtonComponent {
   @Input() buttonText: string = '';
   @Input() action: TaskActions = { class: '', color: '', link: '', type: '' };
+  @Input() routerLink: any[] = [];
   @Input() dataItem: any = {};
   @Output() handleClick = new EventEmitter<number>();
   onClick() {

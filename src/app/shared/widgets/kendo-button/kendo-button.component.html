@@ -1,5 +1,5 @@
 <a 
-    [routerLink]="action.type!=='delete' && action.link ? [action.link, dataItem.id] : []"
+    [routerLink]="routerLink"
     [class]="action.class"
     class="kendo-action-link" 
     [ngStyle]="{ backgroundColor: action.color, }"

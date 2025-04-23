@@ -34,9 +34,9 @@ export class TaskListComponent implements OnInit {
   ];
 
   actions: TaskActions[] = [
-    { class: 'k-icon k-font-icon k-i-eye', color: 'blue', link: '/view', type: 'view' },
-    { class: 'k-icon k-font-icon k-i-edit', color: 'green', link: '/edit', type: 'edit' },
-    { class: 'k-icon k-font-icon k-i-trash', color: 'red', link: '/', type: 'delete' },
+    { class: 'k-icon k-font-icon k-i-eye', color: '#2a80f7', link: '/view', type: 'view' },
+    { class: 'k-icon k-font-icon k-i-edit', color: '#13a126', link: '/edit', type: 'edit' },
+    { class: 'k-icon k-font-icon k-i-trash', color: '#ed111c', link: '/', type: 'delete' },
   ];
 
   constructor(private store: Store) {
@@ -58,7 +58,6 @@ export class TaskListComponent implements OnInit {
     this.store.dispatch(new ReadTasks());
   }
   handleClick(id:number): void {
-    console.log('Delete action clicked for task with ID:', id);
     this.store.dispatch(new DeleteTask(id)).subscribe(() => {
       this.fetchHandler();
     });

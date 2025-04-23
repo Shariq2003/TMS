@@ -12,14 +12,24 @@
         </div>
         <div class="button-wrapper">
             <app-kendo-button
-            [buttonText]="'Refetch Tasks'"
-            [action]="{
-                type: 'refresh',
-                link: '',
-                class: '',
-                color: 'green'
-            }" 
-            (handleClick)="fetchHandler()"
+                [buttonText]="'Add Task'"
+                [routerLink]="['/add']"
+                [action]="{
+                    type: 'add',
+                    link: '/add',
+                    class: '',
+                    color: '#00a6ff'
+                }"
+            ></app-kendo-button>
+            <app-kendo-button
+                [buttonText]="'Refetch Tasks'"
+                [action]="{
+                    type: 'refresh',
+                    link: '',
+                    class: '',
+                    color: 'green'
+                }" 
+                (handleClick)="fetchHandler()"
             ></app-kendo-button>
         </div>
     </div>

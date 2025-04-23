@@ -8,7 +8,8 @@
                 <app-kendo-button
                     [action]="action"
                     [dataItem]="dataItem"
-                    (handleClick)="handleClick(dataItem.id)"
+                    [routerLink]="(action.type!=='delete' && action.link) ? (action.type==='add'? [action.link] : [action.link, dataItem.id]) : []"
+                    (handleClick)="(action.type==='delete' || action.type==='add' || action.type==='refresh') ? handleClick(dataItem.id) : null"
                     >
                 </app-kendo-button>
             </ng-container>
