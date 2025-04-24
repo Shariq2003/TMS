@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { KendoGridComponent } from './kendo-grid/kendo-grid.component';
 import { GridModule } from '@progress/kendo-angular-grid';
-import { KendoFormFieldComponent } from './kendo-form-field/kendo-form-field.component';
+// import { KendoFormFieldComponent } from './kendo-form-field/kendo-form-field.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { FormFieldModule, InputsModule } from '@progress/kendo-angular-inputs';
@@ -13,17 +13,23 @@ import { KendoTextareaComponent } from './kendo-textarea/kendo-textarea.componen
 import { KendoCardComponent } from './kendo-card/kendo-card.component';
 import { KendoButtonComponent } from './kendo-button/kendo-button.component';
 import { RouterModule } from '@angular/router';
+import { KendoInputComponent } from './kendo-input/kendo-input.component';
+import { KendoLabelComponent } from './kendo-label/kendo-label.component';
+import { KendoErrorComponent } from './kendo-error/kendo-error.component';
 
 
 @NgModule({
   declarations: [
     KendoGridComponent,
-    KendoFormFieldComponent,
+    // KendoFormFieldComponent,
     KendoDropdownComponent,
     KendoTextareaComponent,
     KendoTextareaComponent,
     KendoCardComponent,
     KendoButtonComponent,
+    KendoInputComponent,
+    KendoLabelComponent,
+    KendoErrorComponent,
   ],
   imports: [
     CommonModule,
@@ -39,11 +45,14 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     KendoGridComponent,
-    KendoFormFieldComponent,
+    // KendoFormFieldComponent,
     KendoDropdownComponent,
     KendoTextareaComponent,
     KendoCardComponent,
-    KendoButtonComponent
+    KendoButtonComponent ,
+    KendoInputComponent,
+    KendoLabelComponent,
+    KendoErrorComponent,
   ],
 })
 export class WidgetsModule {}

@@ -2,13 +2,12 @@
     <h1>🗂️ Task Management System</h1>
     <div class="task-header">
         <div class="search-wrapper">
-            <app-form-field
-                [placeholder]="'Search here to filter'"
-                [type]="'text'"
-                [control]="searchControl"
-                [error]="'Search input error'"
-                >
-            </app-form-field>
+            <app-kendo-input
+            [control]="searchControl"
+            [label]="'Search here to filter'"
+            [placeholder]="'Search here to filter'"
+          ></app-kendo-input>
+          
         </div>
         <div class="button-wrapper">
             <app-kendo-button

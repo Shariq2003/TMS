@@ -3,7 +3,7 @@ import { Task } from '../store/models/tasks.model';
 
 @Pipe({
   name: 'taskFilter',
-  pure: true 
+  pure: true
 })
 export class TaskFilterPipe implements PipeTransform {
   transform(tasks: Task[], searchTerm: string): Task[] {
@@ -14,8 +14,13 @@ export class TaskFilterPipe implements PipeTransform {
     const lowerTerm = searchTerm.toLowerCase();
 
     return tasks.filter(task => {
-      return Object.values(task).some(value =>
-        String(value).toLowerCase().includes(lowerTerm)
+      return (
+        task.id.includes(lowerTerm) ||
+        task.title.toLowerCase().includes(lowerTerm) ||
+        task.description.toLowerCase().includes(lowerTerm) ||
+        task.status.toLowerCase().includes(lowerTerm) ||
+        task.priority.toLowerCase().includes(lowerTerm) ||
+        task.assigned.toLowerCase().includes(lowerTerm)
       );
     });
   }
