@@ -8,7 +8,7 @@ import { Component, Input, Output , EventEmitter } from '@angular/core';
 export class KendoDropdownComponent {
  
   @Input()  dropdownData : Array<string> = [];
-
+  @Input() placeholder: string = 'Select';
   @Input() label: string = '';
 
   @Output() selectionChange = new EventEmitter<string>();
