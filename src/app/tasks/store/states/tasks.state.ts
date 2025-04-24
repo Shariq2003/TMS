@@ -7,7 +7,7 @@ import {
   UpdateTask,
   DeleteTask,
 } from '../actions/tasks.action';
-import { TasksService } from '../../services/api/api.service';
+import { TasksService } from '../../services/tasks/tasks.service';
 import { tap } from 'rxjs/operators';
 
 export interface TasksStateModel {
