@@ -20,20 +20,28 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TasksState } from './tasks/store/states/tasks.state';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {
-  provideHttpClient,
-  withInterceptorsFromDi,
-} from '@angular/common/http';
 import { TaskViewComponent } from './tasks/components/task-view/task-view.component';
 import { TaskEditComponent } from './tasks/components/task-edit/task-edit.component';
 import { TaskFilterPipe } from './tasks/pipes/task-filter.pipe';
 import { TaskAddComponent } from './tasks/components/task-add/task-add.component';
-
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderComponent } from './tasks/components/loader/loader.component';
 
 @NgModule({
-  declarations: [AppComponent, TaskListComponent, TaskViewComponent, TaskEditComponent, TaskFilterPipe, TaskAddComponent],
+  declarations: [
+    AppComponent,
+    TaskListComponent,
+    TaskViewComponent,
+    TaskEditComponent,
+    TaskFilterPipe,
+    TaskAddComponent,
+    LoaderComponent,
+  ],
   imports: [
     BrowserAnimationsModule,
+    HttpClientModule,
     BrowserModule,
     ReactiveFormsModule,
     SharedModule,
@@ -52,7 +60,11 @@ import { TaskAddComponent } from './tasks/components/task-add/task-add.component
   ],
   providers: [
     importProvidersFrom(FormsModule),
-    provideHttpClient(withInterceptorsFromDi()),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })
