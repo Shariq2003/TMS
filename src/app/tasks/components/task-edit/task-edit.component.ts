@@ -46,6 +46,12 @@ ngOnInit(): void {
   this.taskId = this.route.snapshot.paramMap.get('id')! ;
   const tasks = this.store.selectSnapshot(TasksState.getTasks);
   const task = tasks.find(t => t.id === this.taskId) || null;
+  // this.taskForm.setValue({
+  //   title: task?.title || '',
+  //   description: task?.description || '',
+  //   status: task?.status || 'Pending',
+  //   priority: task?.priority || 'Low'
+  // })
   if (!task) {
     alert('Task not found!');
     this.router.navigate(['/tasks']);
