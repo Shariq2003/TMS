@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngxs/store';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { UpdateTask } from '../../store/actions/tasks.action';
 import { TasksState } from '../../store/states/tasks.state';
 import { Task } from '../../store/models/tasks.model';
@@ -30,6 +30,9 @@ get statusControl(): FormControl {
   return this.taskForm.get('status') as FormControl;
 }
 
+get priorityControl(): FormControl {
+  return this.taskForm.get('priority') as FormControl;
+}
 
 
 constructor(
@@ -54,8 +57,10 @@ this.taskToEdit = task;
 this.taskForm = this.fb.group({
   title: [task.title, Validators.required],
   description: [task.description],
-  status: [task.status, Validators.required]
+  status: [task.status, Validators.required],
+  priority: [task.priority, Validators.required]  
 });
+
 
 
 }

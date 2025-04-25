@@ -2,30 +2,61 @@
 
 <form [formGroup]="taskForm" (ngSubmit)="onUpdate()" class="k-form k-form-vertical">
 
-<app-form-field
-    label="Title"
-    type="text"
+  <app-kendo-label [label]="'Title'"></app-kendo-label>
+  <app-kendo-input
     [control]="titleControl"
-    placeholder="Enter title"
+    [label]="'Title'"
+    [placeholder]="'Enter title'"
+  ></app-kendo-input>
+  <app-kendo-error
+    [control]="titleControl"
     [error]="'Title is required'"
-  ></app-form-field>
- 
+  ></app-kendo-error>
 
-  <app-form-field
-  label="Description"
-  type="text"
+
+  <app-kendo-label [label]="'Description'"></app-kendo-label>
+ <app-kendo-textarea
   [control]="descriptionControl"
-  placeholder="Enter description"
-></app-form-field>
+  [label]="'Description'"
+  [placeholder]="'Enter description'"
+></app-kendo-textarea>
+<app-kendo-error
+  [control]="descriptionControl"
+  [error]="'Description is required'"
+></app-kendo-error>
 
-<app-form-field
-label="Status"
-type="text"
-[control]="statusControl"
-placeholder="e.g., Pending, In Progress, Done"
-[error]="'Status is required'"
-></app-form-field>
 
-<button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">Update</button>
+<app-kendo-dropdown
+  [dropdownData]="['Pending', 'In Progress', 'Done']"
+  [formControl]="statusControl"
+></app-kendo-dropdown>
+<app-kendo-error
+    [control]="statusControl"
+    [error]="'Status is required'"
+  ></app-kendo-error>
+
+
+  <app-kendo-dropdown
+  [dropdownData]="['High', 'Medium', 'Low']"
+  [control]="priorityControl"
+ ></app-kendo-dropdown>
+<app-kendo-error
+    [control]="priorityControl"
+    [error]="'Priority is required'"
+  ></app-kendo-error>
+  
+
+
+    <app-kendo-button
+    [buttonText]="'Update'"
+    [action]="{
+        type: 'submit',
+        link: '',
+        class: '',
+        color: 'blue'
+    }" 
+    (handleClick)="onUpdate()"
+></app-kendo-button>
+
 
 </form>

@@ -1,1 +1,3 @@
-<p>kendo-error works!</p>
+<kendo-formerror *ngIf="control?.invalid && control?.touched">
+    {{ error }}
+  </kendo-formerror>
