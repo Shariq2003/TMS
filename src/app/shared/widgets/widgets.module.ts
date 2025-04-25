@@ -16,12 +16,13 @@ import { RouterModule } from '@angular/router';
 import { KendoInputComponent } from './kendo-input/kendo-input.component';
 import { KendoLabelComponent } from './kendo-label/kendo-label.component';
 import { KendoErrorComponent } from './kendo-error/kendo-error.component';
+import { KendoDaterangeComponent } from './kendo-daterange/kendo-daterange.component';
 
 
 @NgModule({
   declarations: [
     KendoGridComponent,
-    // KendoFormFieldComponent,
+    KendoDaterangeComponent,
     KendoDropdownComponent,
     KendoTextareaComponent,
     KendoTextareaComponent,
@@ -45,7 +46,7 @@ import { KendoErrorComponent } from './kendo-error/kendo-error.component';
   ],
   exports: [
     KendoGridComponent,
-    // KendoFormFieldComponent,
+    KendoDaterangeComponent,
     KendoDropdownComponent,
     KendoTextareaComponent,
     KendoCardComponent,

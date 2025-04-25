@@ -1,1 +1,84 @@
-<p>task-add works!</p>
+<div>
+    <h2>📝 Add New Task</h2>
+    <form [formGroup]="taskForm" (ngSubmit)="onAdd()">
+        <!-- Title -->
+        <div>
+            <app-kendo-label [label]="'Title'"></app-kendo-label>
+            <app-kendo-input
+                [control]="titleControl" 
+                [label]="'Title'" 
+                [placeholder]="'Enter title'">
+            </app-kendo-input>
+            <app-kendo-error
+                [control]="titleControl" 
+                [error]="'Title is required'">
+            </app-kendo-error>
+        </div>
+
+        <!-- Description -->
+        <div>
+            <app-kendo-label [label]="'Description'"></app-kendo-label>
+            <app-kendo-textarea
+                [control]="descriptionControl" 
+                [label]="'Description'" 
+                [placeholder]="'Enter description'">
+            </app-kendo-textarea>
+            <app-kendo-error
+                [control]="descriptionControl" 
+                [error]="'Description is required'">
+            </app-kendo-error>
+        </div>
+
+        <!-- Status and Priority Dropdowns -->
+        <div class="form-field-group">
+            <div>
+                <app-kendo-label [label]="'Status'"></app-kendo-label>
+                <app-kendo-dropdown
+                    [dropdownData]="['In Progress', 'Pending', 'Completed']" 
+                    [default]="'Select Status'"
+                     [control]="statusControl">
+                </app-kendo-dropdown>
+            </div>
+            <div>
+                <app-kendo-label [label]="'Priority'"></app-kendo-label>
+                <app-kendo-dropdown 
+                    [dropdownData]="['Low', 'Medium', 'High']" 
+                    [default]="'Select Priority'"
+                    [control]="priorityControl">
+                </app-kendo-dropdown>
+            </div>
+        </div>
+
+        <!-- Dates -->
+        <div class="form-field-group">
+            <app-kendo-daterange [startLabel]="'Start Date'" [endLabel]="'End Date'"
+                (dateRangeChange)="onDateRangeChanged($event)">
+            </app-kendo-daterange>
+        </div>
+
+        <!-- Assigned -->
+        <div>
+            <app-kendo-label [label]="'Assigned To'"></app-kendo-label>
+            <app-kendo-input
+               [control]="assignedControl" 
+               [label]="'Assigned To'" 
+               [placeholder]="'Enter assignee'">
+           </app-kendo-input>
+            <app-kendo-error
+                [control]="assignedControl" 
+                [error]="'Assignee is required'">
+            </app-kendo-error>
+        </div>
+        <app-kendo-button
+            [buttonText]="'Add Task'"
+            [routerLink]="['/']"
+            [action]="{
+                type: 'add',
+                link: '/',
+                class: 'k-icon k-font-icon k-i-plus',
+                color: '#00a6ff'
+            }"
+            (handleClick)="onAdd()"
+        ></app-kendo-button>
+    </form>
+</div>

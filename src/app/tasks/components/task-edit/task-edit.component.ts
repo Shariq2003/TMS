@@ -53,8 +53,7 @@ ngOnInit(): void {
   //   priority: task?.priority || 'Low'
   // })
   if (!task) {
-    alert('Task not found!');
-    this.router.navigate(['/tasks']);
+    this.router.navigate(['']);
 return;
 }
 
