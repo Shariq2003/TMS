@@ -19,5 +19,11 @@
   }
 }
 a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
+}
+.btn-text {
+  margin-left: 8px;
 }

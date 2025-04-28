@@ -7,7 +7,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { CreateTask } from '../../store/actions/tasks.action';
+import { CreateTask,UpdateTask } from '../../store/actions/tasks.action';
+import { Task } from '../../store/models/tasks.model';
+import { TasksState } from '../../store/states/tasks.state';
 
 @Component({
   selector: 'app-task-add',
@@ -16,7 +18,10 @@ import { CreateTask } from '../../store/actions/tasks.action';
 })
 export class TaskAddComponent implements OnInit {
   taskForm!: FormGroup;
-
+  taskId!: string;
+  taskToEdit!: Task ;
+  PageTitle: string = "";
+  formType: string = "";
   get titleControl() {
     return this.taskForm.get('title') as FormControl;
   }
@@ -43,15 +48,41 @@ export class TaskAddComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.taskForm = this.fb.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      status: [null, Validators.required],
-      priority: [null, Validators.required],
-      startDate: [null, Validators.required],
-      endDate: [null, Validators.required],
-      assigned: ['', Validators.required],
-    });
+    if (this.router.url.split('/')[1]==="add") {
+      this.formType = "add";
+      this.PageTitle = "Add New Task";
+      this.taskForm = this.fb.group({
+        title: ['', Validators.required],
+        description: ['', Validators.required],
+        status: [null, Validators.required],
+        priority: [null, Validators.required],
+        startDate: [null, Validators.required],
+        endDate: [null, Validators.required],
+        assigned: ['', Validators.required],
+      });
+    }
+    else{
+      this.formType = "edit";
+      this.PageTitle = "Edit Task";
+      this.taskId = this.router.url.split("/")[2];
+      const tasks = this.store.selectSnapshot(TasksState.getTasks);
+      const task = tasks.find(t => t.id === this.taskId) || null;
+      if (!task) {
+        this.router.navigate(['']);
+        return;
+      }
+      this.taskToEdit = task;
+
+      this.taskForm = this.fb.group({
+        title: [task.title, Validators.required],
+        description: [task.description],
+        status: [task.status, Validators.required],
+        priority: [task.priority, Validators.required],
+        startDate: [task.startDate, Validators.required],
+        endDate: [task.endDate, Validators.required],
+        assigned: [task.assigned, Validators.required],
+      });
+    }
   }
   mergeDateWithTime(dateOnly: Date | null, timeFrom: Date): Date | null {
     if (!dateOnly) return null;
@@ -71,30 +102,48 @@ export class TaskAddComponent implements OnInit {
     });
   }
 
-  onAdd(): void {
-    const now = new Date();
-    const startDate = this.mergeDateWithTime(
-      this.taskForm.value.startDate,
-      now
-    );
-    const endDate = this.mergeDateWithTime(this.taskForm.value.endDate, now);
-    const newTask = {
-      id: 0,
-      ...this.taskForm.value,
-      startDate,
-      endDate,
-    };
-    console.log('newTask', newTask);
-    this.store.dispatch(new CreateTask(newTask)).subscribe(() => {
-      this.router.navigate(['/']);
-    });
-  }
-
-  formatDate(date: Date | null): string {
-    if (!date) return '';
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-    return `${day}-${month}-${year}`;
+  onSubmit(event?: Event): void {
+    if(this.router.url.split('/')[1]==="add") {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      if (this.taskForm.invalid) {
+        this.taskForm.markAllAsTouched();
+        return;
+      }
+      const now = new Date();
+      const startDate = this.mergeDateWithTime(
+        this.taskForm.value.startDate,
+        now
+      );
+      const endDate = this.mergeDateWithTime(this.taskForm.value.endDate, now);
+      const newTask = {
+        id: 0,
+        ...this.taskForm.value,
+        startDate,
+        endDate,
+      };
+      this.store.dispatch(new CreateTask(newTask)).subscribe(() => {
+        this.router.navigate(['/']);
+      });
+    }
+    else{
+      if (this.taskForm.invalid) return;
+    
+      const updatedTask: Task = {
+        ...this.taskToEdit,
+        ...this.taskForm.value
+      };
+    
+      this.store.dispatch(
+        new UpdateTask({
+          id: parseInt(this.taskId),  
+          task: updatedTask
+        })
+      ).subscribe(() => {
+        this.router.navigate(['/']);
+      });
+    }
   }
 }

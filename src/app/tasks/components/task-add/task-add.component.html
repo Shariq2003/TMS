@@ -1,6 +1,6 @@
 <div class="task-form-wrapper">
-    <h2 class="form-title">📝 Add New Task</h2>
-    <form class="task-form" [formGroup]="taskForm" (ngSubmit)="onAdd()">
+    <h2 class="form-title">📝 {{PageTitle}}</h2>
+    <form class="task-form" [formGroup]="taskForm" (ngSubmit)="onSubmit($event)">
 
         <!-- Title -->
         <div class="form-group">
@@ -48,21 +48,27 @@
             </app-kendo-daterange>
         </div>
 
-        <!-- Assigned -->
+        <!-- Assignee -->
         <div class="form-group">
-            <app-kendo-label [label]="'Assigned To'"></app-kendo-label>
-            <app-kendo-input [control]="assignedControl" [label]="'Assigned To'" [placeholder]="'Enter assignee'">
+            <app-kendo-label [label]="'Assign To'"></app-kendo-label>
+            <app-kendo-input [control]="assignedControl" [label]="'Assign To'" [placeholder]="'Enter assignee'">
             </app-kendo-input>
             <app-kendo-error [control]="assignedControl" [error]="'Assignee is required'">
             </app-kendo-error>
         </div>
 
-        <app-kendo-button [buttonText]="'Add Task'" [routerLink]="['/']" [action]="{
-        type: 'add',
-        link: '/',
-        class: 'k-icon k-font-icon k-i-plus',
-        color: '#00a6ff'
-      }" (handleClick)="onAdd()">
-        </app-kendo-button>
+        <!-- Submit -->
+        <div class="submit-btn">
+            <app-kendo-button 
+                [buttonText]="formType === 'add' ? ' Add Task' : 'Update Task'" 
+                [action]="{
+                    type: formType === 'add' ? 'add' : 'edit',
+                    link: '/',
+                    class: 'k-icon k-font-icon ' + (formType==='add' ? 'k-i-plus' : 'k-i-edit'),
+                    color: '#00a6ff'
+                }" 
+                (handleClick)="onSubmit($event)">
+            </app-kendo-button>
+        </div>
     </form>
 </div>

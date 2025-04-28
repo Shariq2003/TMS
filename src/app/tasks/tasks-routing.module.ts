@@ -7,6 +7,6 @@ import { TaskAddComponent } from './components/task-add/task-add.component';
 export const tasksRoutes: Routes = [
   { path: '', component: TaskListComponent },
   { path: 'view/:id', component: TaskViewComponent },
-  { path: 'edit/:id', component: TaskEditComponent },
+  { path: 'edit/:id', component: TaskAddComponent },
   { path: 'add', component: TaskAddComponent },
 ];

@@ -11,7 +11,7 @@ export class KendoButtonComponent {
   @Input() action: TaskActions = { class: '', color: '', link: '', type: '' };
   @Input() routerLink: any[] = [];
   @Input() dataItem: any = {};
-  @Output() handleClick = new EventEmitter<number>();
+  @Output() handleClick = new EventEmitter<any>();
   onClick() {
     this.handleClick.emit();
   }
