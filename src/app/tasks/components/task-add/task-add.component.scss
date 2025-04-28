@@ -1,4 +1,44 @@
-.form-field-group{
+.task-form-wrapper {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+.form-title {
+  text-align: center;
+  font-size: 1.75rem;
+  color: #2e3a59;
+}
+
+.task-form {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-field-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  > .form-group,
+  > app-kendo-daterange {
+    flex: 1 1 300px;
+  }
+}
+
+.submit-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }

@@ -1,51 +1,43 @@
-<div>
-    <h2>📝 Add New Task</h2>
-    <form [formGroup]="taskForm" (ngSubmit)="onAdd()">
+<div class="task-form-wrapper">
+    <h2 class="form-title">📝 {{PageTitle}}</h2>
+    <form class="task-form" [formGroup]="taskForm" (ngSubmit)="onSubmit($event)">
+
         <!-- Title -->
-        <div>
+        <div class="form-group">
             <app-kendo-label [label]="'Title'"></app-kendo-label>
-            <app-kendo-input
-                [control]="titleControl" 
-                [label]="'Title'" 
-                [placeholder]="'Enter title'">
+            <app-kendo-input [control]="titleControl" [label]="'Title'" [placeholder]="'Enter title'">
             </app-kendo-input>
-            <app-kendo-error
-                [control]="titleControl" 
-                [error]="'Title is required'">
+            <app-kendo-error [control]="titleControl" [error]="'Title is required'">
             </app-kendo-error>
         </div>
 
         <!-- Description -->
-        <div>
+        <div class="form-group">
             <app-kendo-label [label]="'Description'"></app-kendo-label>
-            <app-kendo-textarea
-                [control]="descriptionControl" 
-                [label]="'Description'" 
+            <app-kendo-textarea [control]="descriptionControl" [label]="'Description'"
                 [placeholder]="'Enter description'">
             </app-kendo-textarea>
-            <app-kendo-error
-                [control]="descriptionControl" 
-                [error]="'Description is required'">
+            <app-kendo-error [control]="descriptionControl" [error]="'Description is required'">
             </app-kendo-error>
         </div>
 
-        <!-- Status and Priority Dropdowns -->
+        <!-- Status and Priority -->
         <div class="form-field-group">
-            <div>
+            <div class="form-group">
                 <app-kendo-label [label]="'Status'"></app-kendo-label>
-                <app-kendo-dropdown
-                    [dropdownData]="['In Progress', 'Pending', 'Completed']" 
-                    [default]="'Select Status'"
-                     [control]="statusControl">
+                <app-kendo-dropdown [dropdownData]="['In Progress', 'Pending', 'Completed']" [default]="'Select Status'"
+                    [control]="statusControl">
                 </app-kendo-dropdown>
+                <app-kendo-error [control]="statusControl" [error]="'Status is required'">
+                </app-kendo-error>
             </div>
-            <div>
+            <div class="form-group">
                 <app-kendo-label [label]="'Priority'"></app-kendo-label>
-                <app-kendo-dropdown 
-                    [dropdownData]="['Low', 'Medium', 'High']" 
-                    [default]="'Select Priority'"
+                <app-kendo-dropdown [dropdownData]="['Low', 'Medium', 'High']" [default]="'Select Priority'"
                     [control]="priorityControl">
                 </app-kendo-dropdown>
+                <app-kendo-error [control]="priorityControl" [error]="'Priority is required'">
+                </app-kendo-error>
             </div>
         </div>
 
@@ -56,29 +48,27 @@
             </app-kendo-daterange>
         </div>
 
-        <!-- Assigned -->
-        <div>
-            <app-kendo-label [label]="'Assigned To'"></app-kendo-label>
-            <app-kendo-input
-               [control]="assignedControl" 
-               [label]="'Assigned To'" 
-               [placeholder]="'Enter assignee'">
-           </app-kendo-input>
-            <app-kendo-error
-                [control]="assignedControl" 
-                [error]="'Assignee is required'">
+        <!-- Assignee -->
+        <div class="form-group">
+            <app-kendo-label [label]="'Assign To'"></app-kendo-label>
+            <app-kendo-input [control]="assignedControl" [label]="'Assign To'" [placeholder]="'Enter assignee'">
+            </app-kendo-input>
+            <app-kendo-error [control]="assignedControl" [error]="'Assignee is required'">
             </app-kendo-error>
         </div>
-        <app-kendo-button
-            [buttonText]="'Add Task'"
-            [routerLink]="['/']"
-            [action]="{
-                type: 'add',
-                link: '/',
-                class: 'k-icon k-font-icon k-i-plus',
-                color: '#00a6ff'
-            }"
-            (handleClick)="onAdd()"
-        ></app-kendo-button>
+
+        <!-- Submit -->
+        <div class="submit-btn">
+            <app-kendo-button 
+                [buttonText]="formType === 'add' ? ' Add Task' : 'Update Task'" 
+                [action]="{
+                    type: formType === 'add' ? 'add' : 'edit',
+                    link: '/',
+                    class: 'k-icon k-font-icon ' + (formType==='add' ? 'k-i-plus' : 'k-i-edit'),
+                    color: '#00a6ff'
+                }" 
+                (handleClick)="onSubmit($event)">
+            </app-kendo-button>
+        </div>
     </form>
 </div>

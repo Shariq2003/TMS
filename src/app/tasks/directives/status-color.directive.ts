@@ -18,7 +18,7 @@ export class StatusColorDirective {
         case 'Pending':
         color = 'red';
         break;
-      case 'Done':
+      case 'Completed':
         color = 'green';
         break;
       default:

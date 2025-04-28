@@ -1,13 +1,13 @@
 <kendo-daterange>
-    <kendo-floatinglabel [text]="startLabel">
+    <kendo-floatinglabel [text]="startLabel" class="full-width">
         <kendo-dateinput kendoDateRangeStartInput [value]="range.startDate" (valueChange)="onStartDateChange($event)"
-            [placeholder]="startPlaceholder">
+            [placeholder]="startPlaceholder" class="full-width-input">
         </kendo-dateinput>
     </kendo-floatinglabel>
 
-    <kendo-floatinglabel [text]="endLabel">
+    <kendo-floatinglabel [text]="endLabel" class="full-width">
         <kendo-dateinput kendoDateRangeEndInput [value]="range.endDate" (valueChange)="onEndDateChange($event)"
-            [placeholder]="endPlaceholder">
+            [placeholder]="endPlaceholder" class="full-width-input">
         </kendo-dateinput>
     </kendo-floatinglabel>
 </kendo-daterange>
