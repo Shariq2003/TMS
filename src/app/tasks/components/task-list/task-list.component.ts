@@ -66,9 +66,9 @@ export class TaskListComponent implements OnInit {
     this.tasks = this.store.select(TasksState.getTasks);
 
     this.tasks.subscribe((tasks) => {
-      if (!tasks || tasks.length === 0) {
-        this.store.dispatch(new ReadTasks());
-      }
+      // if (!tasks || tasks.length === 0) {
+      //   this.store.dispatch(new ReadTasks());
+      // }
       this.taskList = tasks;
       // this.searchControl.valueChanges.subscribe((value) => {
       //   this.onSearchChange();
