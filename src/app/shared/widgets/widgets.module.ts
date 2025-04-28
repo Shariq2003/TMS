@@ -17,6 +17,7 @@ import { KendoInputComponent } from './kendo-input/kendo-input.component';
 import { KendoLabelComponent } from './kendo-label/kendo-label.component';
 import { KendoErrorComponent } from './kendo-error/kendo-error.component';
 import { KendoDaterangeComponent } from './kendo-daterange/kendo-daterange.component';
+import { StatusColorDirective } from '../../tasks/directives/status-color.directive';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { KendoDaterangeComponent } from './kendo-daterange/kendo-daterange.compo
     KendoInputComponent,
     KendoLabelComponent,
     KendoErrorComponent,
+    StatusColorDirective,
   ],
   imports: [
     CommonModule,
