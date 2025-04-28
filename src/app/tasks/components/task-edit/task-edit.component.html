@@ -27,7 +27,7 @@
 
 
 <app-kendo-dropdown
-  [dropdownData]="['In Progress','Pending', 'Completed']"
+  [dropdownData]="[{ text: 'In Progress', value: 'In Progress' },{ text: 'Pending', value: 'Pending' },{ text: 'Completed', value: 'Completed' }]"
   [control]="statusControl"
 ></app-kendo-dropdown>
 <app-kendo-error
@@ -37,7 +37,7 @@
 
 
   <app-kendo-dropdown
-  [dropdownData]="['Low','Medium', 'High']"
+  [dropdownData]="[{ text: 'Low', value: 'Low' },{ text: 'Medium', value: 'Medium' },{ text: 'High', value: 'High' }]"
   [control]="priorityControl"
  ></app-kendo-dropdown>
 <app-kendo-error
