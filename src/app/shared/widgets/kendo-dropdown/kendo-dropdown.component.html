@@ -1,6 +1,9 @@
 <kendo-dropdownlist
   [data]="dropdownData"
   [formControl]="control"
-  [defaultItem]="default"
+  [defaultItem]="{ text: default, value: null }"
+  [valuePrimitive]="true"
+  [valueField]="'value'"
+  [textField]="'text'"
 >
 </kendo-dropdownlist>

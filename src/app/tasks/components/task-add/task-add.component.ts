@@ -56,8 +56,8 @@ export class TaskAddComponent implements OnInit {
         description: ['', Validators.required],
         status: [null, Validators.required],
         priority: [null, Validators.required],
-        startDate: [null, Validators.required],
-        endDate: [null, Validators.required],
+        startDate: [new Date(), Validators.required],
+        endDate: [new Date(), Validators.required],
         assigned: ['', Validators.required],
       });
     }
@@ -145,5 +145,8 @@ export class TaskAddComponent implements OnInit {
         this.router.navigate(['/']);
       });
     }
+  }
+  transformDate(date: any): Date {
+    return new Date(date);
   }
 }

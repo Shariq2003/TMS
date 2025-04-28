@@ -25,7 +25,9 @@
         <div class="form-field-group">
             <div class="form-group">
                 <app-kendo-label [label]="'Status'"></app-kendo-label>
-                <app-kendo-dropdown [dropdownData]="['In Progress', 'Pending', 'Completed']" [default]="'Select Status'"
+                <app-kendo-dropdown 
+                    [dropdownData]="[{ text: 'In Progress', value: 'In Progress' },{ text: 'Pending', value: 'Pending' },{ text: 'Completed', value: 'Completed' }]" 
+                    [default]="'Select Status'"
                     [control]="statusControl">
                 </app-kendo-dropdown>
                 <app-kendo-error [control]="statusControl" [error]="'Status is required'">
@@ -33,7 +35,9 @@
             </div>
             <div class="form-group">
                 <app-kendo-label [label]="'Priority'"></app-kendo-label>
-                <app-kendo-dropdown [dropdownData]="['Low', 'Medium', 'High']" [default]="'Select Priority'"
+                <app-kendo-dropdown 
+                    [dropdownData]="[{ text: 'Low', value: 'Low' },{ text: 'Medium', value: 'Medium' },{ text: 'High', value: 'High' }]" 
+                    [default]="'Select Priority'"
                     [control]="priorityControl">
                 </app-kendo-dropdown>
                 <app-kendo-error [control]="priorityControl" [error]="'Priority is required'">
@@ -44,7 +48,9 @@
         <!-- Dates -->
         <div class="form-field-group">
             <app-kendo-daterange [startLabel]="'Start Date'" [endLabel]="'End Date'"
-                (dateRangeChange)="onDateRangeChanged($event)">
+                (dateRangeChange)="onDateRangeChanged($event)" 
+                [startDate]="transformDate(taskForm.get('startDate')?.value)"
+                [endDate]="transformDate(taskForm.get('endDate')?.value)">
             </app-kendo-daterange>
         </div>
 
