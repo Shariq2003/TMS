@@ -20,7 +20,7 @@ import TaskActions from '../../store/models/taskActions.model';
 export class TaskListComponent implements OnInit {
   tasks!: Observable<Task[]>;
   taskList: Task[] = [];
-  filteredTasks: Task[] = [];
+  // filteredTasks: Task[] = [];
   searchControl: FormControl = new FormControl('');
   columnFields: any[]  = [
     { field: 'id', title: 'ID' },

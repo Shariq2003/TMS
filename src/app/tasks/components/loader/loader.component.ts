@@ -11,6 +11,6 @@ export class LoaderComponent {
   isLoading!: Observable<boolean>;
   constructor(private loaderService: LoaderService) {}
   ngOnInit(): void {
-    this.isLoading = this.loaderService.loading$;
+    this.isLoading = this.loaderService.loading;
   }
 }

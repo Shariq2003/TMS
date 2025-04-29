@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-kendo-dropdown',
   templateUrl: './kendo-dropdown.component.html',
   styleUrls: ['./kendo-dropdown.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class KendoDropdownComponent {
   @Input() dropdownData: { text: string; value: any }[] = [];
