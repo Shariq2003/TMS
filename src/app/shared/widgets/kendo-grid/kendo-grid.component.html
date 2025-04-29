@@ -14,16 +14,18 @@
   </kendo-grid-column>
   <kendo-grid-column>
     <ng-template kendoGridCellTemplate let-dataItem>
-      <ng-container *ngFor="let action of actions">
-        <!-- <a [routerLink]="action.type!=='delete' ? [action.link, dataItem.id,] : []" [class]="action.class" class="kendo-action-link" [ngStyle]="{ backgroundColor: action.color }" (click)="action.type==='delete' ? handleClick(dataItem.id): null"></a> -->
-        <app-kendo-button
-          [action]="action"
-          [dataItem]="dataItem"
-          [routerLink]="(action.type!=='delete' && action.link) ? (action.type==='add'? [action.link] : [action.link, dataItem.id]) : []"
-          (handleClick)="(action.type==='delete' || action.type==='add' || action.type==='refresh') ? handleClick(dataItem.id) : null"
-          >
-        </app-kendo-button>
-      </ng-container>
+      <div class="actions-wrapper">
+        <ng-container *ngFor="let action of actions">
+          <!-- <a [routerLink]="action.type!=='delete' ? [action.link, dataItem.id,] : []" [class]="action.class" class="kendo-action-link" [ngStyle]="{ backgroundColor: action.color }" (click)="action.type==='delete' ? handleClick(dataItem.id): null"></a> -->
+          <app-kendo-button
+            [action]="action"
+            [dataItem]="dataItem"
+            [routerLink]="(action.type!=='delete' && action.link) ? (action.type==='add'? [action.link] : [action.link, dataItem.id]) : []"
+            (handleClick)="(action.type==='delete' || action.type==='add' || action.type==='refresh') ? handleClick(dataItem.id) : null"
+            >
+          </app-kendo-button>
+        </ng-container>
+      </div>
     </ng-template>
   </kendo-grid-column>
   <ng-template kendoGridNoRecordsTemplate>
