@@ -55,7 +55,7 @@ export class TaskListComponent implements OnInit {
   fetchHandler(): void {
     this.store.dispatch(new ReadTasks());
   }
-  handleClick(id:number): void {
+  handleClick(id:string): void {
     this.store.dispatch(new DeleteTask(id)).subscribe(() => {
       this.fetchHandler();
     });

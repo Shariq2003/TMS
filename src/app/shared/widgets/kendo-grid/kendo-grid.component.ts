@@ -10,7 +10,7 @@ import { Task } from '../../../tasks/store/models/tasks.model';
 export class KendoGridComponent {
   @Input() gridData: Task[] = [];
   @Input() actions: TaskActions[] = [];
-  @Input() handleClick : (id:number) => void = () => {};
+  @Input() handleClick : (id:string) => void = () => {};
 
   @Input() columnFields: any[] = [];
 }

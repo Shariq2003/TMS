@@ -11,5 +11,5 @@ export class UpdateTask {
 }
 export class DeleteTask {
   static readonly type = '[Tasks] Delete';
-  constructor(public id: number) {}
+  constructor(public id: string) {}
 }
