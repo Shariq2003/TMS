@@ -4,9 +4,7 @@ import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { Task } from '../../store/models/tasks.model';
 import {
-  CreateTask,
   ReadTasks,
-  UpdateTask,
   DeleteTask,
 } from '../../store/actions/tasks.action';
 import { TasksState } from '../../store/states/tasks.state';

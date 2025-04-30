@@ -138,7 +138,7 @@ export class TaskAddComponent implements OnInit {
     
       this.store.dispatch(
         new UpdateTask({
-          id: parseInt(this.taskId),  
+          id: this.taskId,  
           task: updatedTask
         })
       ).subscribe(() => {

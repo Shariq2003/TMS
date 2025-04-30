@@ -7,7 +7,7 @@ export class ReadTasks {
 }
 export class UpdateTask {
   static readonly type = '[Tasks] Update';
-  constructor(public payload: { id: number; task: any }) {}
+  constructor(public payload: { id: string; task: any }) {}
 }
 export class DeleteTask {
   static readonly type = '[Tasks] Delete';

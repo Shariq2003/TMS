@@ -19,7 +19,7 @@ export class TasksService {
     return this.http.post<Task>(this.baseUrl, task);
   }
 
-  updateTask(id: number | string, task: Task): Observable<Task> {
+  updateTask(id: string, task: Task): Observable<Task> {
     return this.http.put<Task>(`${this.baseUrl}/${id}`, task);
   }
 

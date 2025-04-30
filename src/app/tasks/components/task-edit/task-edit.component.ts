@@ -80,7 +80,7 @@ onUpdate(): void {
 
   this.store.dispatch(
     new UpdateTask({
-      id: +this.taskId,  
+      id: this.taskId,  
       task: updatedTask
     })
   ).subscribe(() => {
