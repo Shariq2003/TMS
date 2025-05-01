@@ -9,3 +9,11 @@
   align-items: center;
   justify-content: center;
 }
+.fit-content-cell {
+  white-space: nowrap;
+}
+::ng-deep .k-grid .k-header {
+  font-weight: bold;
+  background-color: #00a6ff;
+  color: white;
+}
