@@ -10,6 +10,7 @@ import {
 import { CreateTask,UpdateTask } from '../../store/actions/tasks.action';
 import { Task } from '../../store/models/tasks.model';
 import { TasksState } from '../../store/states/tasks.state';
+import { NotificationsService } from '../../services/notification/notifications.service';
 
 @Component({
   selector: 'app-task-add',
@@ -44,7 +45,8 @@ export class TaskAddComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private store: Store,
-    private router: Router
+    private router: Router,
+    private notificationsService: NotificationsService
   ) {}
 
   ngOnInit(): void {
@@ -110,6 +112,7 @@ export class TaskAddComponent implements OnInit {
       }
       if (this.taskForm.invalid) {
         this.taskForm.markAllAsTouched();
+        this.notificationsService.showError('Please fill all required fields');
         return;
       }
       const now = new Date();
@@ -125,12 +128,16 @@ export class TaskAddComponent implements OnInit {
         endDate,
       };
       this.store.dispatch(new CreateTask(newTask)).subscribe(() => {
+        this.notificationsService.showSuccess('Task Created Successfully');
         this.router.navigate(['/']);
       });
     }
     else{
-      if (this.taskForm.invalid) return;
-    
+      if (this.taskForm.invalid){
+        this.taskForm.markAllAsTouched();
+        this.notificationsService.showError('Please fill all required fields');
+        return;
+      }
       const updatedTask: Task = {
         ...this.taskToEdit,
         ...this.taskForm.value
@@ -142,6 +149,7 @@ export class TaskAddComponent implements OnInit {
           task: updatedTask
         })
       ).subscribe(() => {
+        this.notificationsService.showSuccess('Task Updated Successfully');
         this.router.navigate(['/']);
       });
     }

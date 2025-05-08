@@ -28,6 +28,7 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderComponent } from './tasks/components/loader/loader.component';
+import { NotificationModule } from '@progress/kendo-angular-notification';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { LoaderComponent } from './tasks/components/loader/loader.component';
     LoaderComponent,
   ],
   imports: [
+    NotificationModule,
     BrowserAnimationsModule,
     HttpClientModule,
     BrowserModule,

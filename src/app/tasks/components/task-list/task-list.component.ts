@@ -9,6 +9,7 @@ import {
 } from '../../store/actions/tasks.action';
 import { TasksState } from '../../store/states/tasks.state';
 import TaskActions from '../../store/models/taskActions.model';
+import { NotificationsService } from '../../services/notification/notifications.service';
 
 @Component({
   selector: 'app-task-list',
@@ -37,7 +38,7 @@ export class TaskListComponent implements OnInit {
     { class: 'k-icon k-font-icon k-i-trash', color: '#ed111c', link: '/', type: 'delete' },
   ];
 
-  constructor(private store: Store) {
+  constructor(private store: Store, private notificationsService: NotificationsService) {
     // this.store.dispatch(new ReadTasks());
     // this.tasks$ = this.store.select(TasksState.getTasks);
     this.handleClick = this.handleClick.bind(this); 
@@ -53,10 +54,13 @@ export class TaskListComponent implements OnInit {
   //   );
   // }
   fetchHandler(): void {
-    this.store.dispatch(new ReadTasks());
+    this.store.dispatch(new ReadTasks()).subscribe(()=>{
+      this.notificationsService.showSuccess('Tasks Fetched Successfully');
+    });
   }
   handleClick(id:string): void {
     this.store.dispatch(new DeleteTask(id)).subscribe(() => {
+      this.notificationsService.showSuccess('Task Deleted Successfully');
       this.fetchHandler();
     });
   }
