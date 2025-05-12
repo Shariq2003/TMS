@@ -27,7 +27,6 @@ import { TaskAddComponent } from './tasks/components/task-add/task-add.component
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { LoaderComponent } from './tasks/components/loader/loader.component';
 import { NotificationModule } from '@progress/kendo-angular-notification';
 
 @NgModule({
@@ -38,7 +37,6 @@ import { NotificationModule } from '@progress/kendo-angular-notification';
     TaskEditComponent,
     TaskFilterPipe,
     TaskAddComponent,
-    LoaderComponent,
   ],
   imports: [
     NotificationModule,
@@ -71,3 +69,4 @@ import { NotificationModule } from '@progress/kendo-angular-notification';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+ 

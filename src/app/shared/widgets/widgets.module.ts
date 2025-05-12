@@ -18,6 +18,8 @@ import { KendoLabelComponent } from './kendo-label/kendo-label.component';
 import { KendoErrorComponent } from './kendo-error/kendo-error.component';
 import { KendoDaterangeComponent } from './kendo-daterange/kendo-daterange.component';
 import { StatusColorDirective } from '../../tasks/directives/status-color.directive';
+import { IndicatorsModule } from '@progress/kendo-angular-indicators';
+import { KendoLoaderComponent } from './kendo-loader/kendo-loader.component';
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { StatusColorDirective } from '../../tasks/directives/status-color.direct
     KendoLabelComponent,
     KendoErrorComponent,
     StatusColorDirective,
+    KendoLoaderComponent,
   ],
   imports: [
     CommonModule,
@@ -45,6 +48,7 @@ import { StatusColorDirective } from '../../tasks/directives/status-color.direct
     DropDownsModule,
     LabelModule,
     RouterModule,
+    IndicatorsModule,
   ],
   exports: [
     KendoGridComponent,
@@ -52,10 +56,12 @@ import { StatusColorDirective } from '../../tasks/directives/status-color.direct
     KendoDropdownComponent,
     KendoTextareaComponent,
     KendoCardComponent,
-    KendoButtonComponent ,
+    KendoButtonComponent,
     KendoInputComponent,
     KendoLabelComponent,
     KendoErrorComponent,
+    KendoLoaderComponent,
   ],
 })
 export class WidgetsModule {}
+ 

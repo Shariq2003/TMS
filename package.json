@@ -31,6 +31,7 @@
     "@progress/kendo-angular-excel-export": "18.5.1",
     "@progress/kendo-angular-grid": "^18.5.1",
     "@progress/kendo-angular-icons": "18.5.1",
+    "@progress/kendo-angular-indicators": "^18.5.2",
     "@progress/kendo-angular-inputs": "18.5.1",
     "@progress/kendo-angular-intl": "18.5.1",
     "@progress/kendo-angular-l10n": "18.5.1",
@@ -68,3 +69,4 @@
     "typescript": "~5.5.2"
   }
 }
+ 
