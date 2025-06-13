@@ -1,27 +1,84 @@
-# TMS
+# ✅ Task Management System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.18.
+A responsive, component-driven Task Management System built using **Angular**, **Kendo UI**, **RxJS**, and **NGXS** to streamline task workflows with clean architecture, real-time search, and reusable UI patterns.
 
-## Development server
+## 📦 Tech Stack
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- ⚙️ Angular
+- 🎨 Kendo UI
+- ⚡ RxJS
+- 🧠 NGXS
+- 🎯 TypeScript
+- 🧵 SCSS
 
-## Code scaffolding
+## 💡 Key Features & Angular Concepts
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| 🔑 Feature                                | 🧩 Implementation Detail                                                                 |
+|------------------------------------------|-------------------------------------------------------------------------------------------|
+| 🗂️ UI Grid / List                        | Kendo UI Grid & ListView – responsive, paginated task list                               |
+| 🧱 Reusable UI Components                | Kendo Grid, DropDown, Labels, Inputs – modular & reusable                                |
+| 🔍 Real-time Search                      | RxJS async pipelining + `async` pipe for optimized search                                |
+| 🧪 Status-based Filtering                | `TaskFilterPipe` – dynamically filters tasks by status                                   |
+| 🎨 Dynamic Styling                       | `StatusColorDirective` – applies conditional styling on status field                    |
+| 📝 Form Validation                       | Reactive Forms in `TaskAddComponent` & `TaskEditComponent`                               |
+| ⏳ Global Loader                         | `LoaderInterceptor` – displays loader on all HTTP requests                               |
+| 🧭 Routing & Navigation                  | Angular Router: `/`, `/add`, `/view/:id`, `/edit/:id`                                   |
+| 🧠 State Management                      | NGXS – centralized state with selectors & actions                                        |
+| 📱 Responsive Design                     | SCSS with Kendo UI – mobile-friendly, responsive layout                                  |
 
-## Build
+## 🚀 Live Demo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+👉 [Live Site](https://tms-flame.vercel.app/)
 
-## Running unit tests
+## 📁 GitHub Repository
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+👉 [GitHub Repo](https://github.com/Shariq2003/TMS)
 
-## Running end-to-end tests
+## 🙌 Acknowledgements
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- 👩‍💻 **Yashi** – For collaborating across modules and features
+- 👨‍🏫 **Guddu Sir** – For mentoring and reviewing the project architecture
+- 👩‍💼 **Vijeta Ma’am** – For project supervision and strategic feedback
 
-## Further help
+## 📚 Lessons Learned
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project taught us how to:
+- Design modular, maintainable Angular applications
+- Use Kendo UI effectively with custom components
+- Apply NGXS for clean and scalable state management
+- Optimize user experience with loaders, interceptors, and dynamic filters
+
+---
+
+> Built with ❤️ by Shariq and team.
+
+## 🛠️ Setup Instructions
+
+To run this project locally, follow these steps:
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/Shariq2003/TMS.git
+cd TMS
+```
+
+2. **Install dependencies**
+```bash
+npm install
+```
+
+3. **Start the development server**
+```bash
+ng serve
+```
+
+4. **Visit the app in your browser**
+```
+http://localhost:4200
+```
+
+> Make sure you have Angular CLI installed globally. If not, run: `npm install -g @angular/cli`
+
+---
+
+Happy coding! ✨
