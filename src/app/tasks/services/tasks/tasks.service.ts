@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Task } from '../../store/models/tasks.model';
 import { Observable } from 'rxjs';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TasksService {
-  private baseUrl = 'https://67f16da7c733555e24ad257e.mockapi.io/demo/v1/tasks';
+  private readonly baseUrl = environment.tasksApiUrl;
 
   constructor(private http: HttpClient) {}
 
